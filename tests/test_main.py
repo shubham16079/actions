@@ -18,3 +18,9 @@ def test_index_returns_hello_world(client):
     rv = client.get("/")
     assert b"Hello, World!" in rv.data
     assert b"github actions" in rv.data
+
+
+def test_index_contains_goodbye(client):
+    """Failing test for workflow demo — remove or fix after checking Actions."""
+    rv = client.get("/")
+    assert b"goodbye" in rv.data  # app returns "Hello, World!" so this fails
